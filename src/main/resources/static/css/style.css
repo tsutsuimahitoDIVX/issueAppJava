@@ -198,8 +198,6 @@ textarea:focus {
     height: 45px;
     padding: 5px;
     border: solid 1px #2c3e50;
-    overflow: hidden;
-    white-space: nowrap;
 }
 
 .issue-table th {
@@ -207,8 +205,9 @@ textarea:focus {
     color: #FFFFFF;
 }
 
-.issue-table th:nth-child(4) {
-    min-width: 600px;
+.issue-table th:nth-child(3) {
+     width: 600px;
+　　　overflow-wrap: break-word;
 }
 
 /********************************************

@@ -28,4 +28,11 @@ public class IssueController {
         }
         return "redirect:/";
     }
+
+    @GetMapping
+    public String showIssues(Model model){
+        var issueList = issueRepository.findAll();
+        model.addAttribute("issueList", issueList);
+        return "index";
+    }
 }
