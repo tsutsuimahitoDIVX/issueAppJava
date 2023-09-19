@@ -205,7 +205,7 @@ textarea:focus {
     color: #FFFFFF;
 }
 
-.issue-table th:nth-child(3) {
+.issue-table th:nth-child(4) {
      width: 600px;
 　　　overflow-wrap: break-word;
 }

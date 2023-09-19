@@ -1,16 +1,14 @@
 package in.techcamp.issueAppJava;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
-
-@Mapper
-public interface IssueRepository {
-    @Insert("insert into issues (title, content, period, importance) values (#{title}, #{content}, #{period}, #{importance})")
-    void insert(String title,String content,String period,Character importance);
-
-    @Select("select * from issues")
-    List<IssueEntity> findAll();
+public interface IssueRepository extends JpaRepository<IssueEntity, Integer> {
 }
+//@Mapper
+//public interface IssueRepository {
+//    @Insert("insert into issues (title, content, period, importance) values (#{title}, #{content}, #{period}, #{importance})")
+//    void insert(String title,String content,String period,Character importance);
+//
+//    @Select("select * from issues")
+//    List<IssueEntity> findAll();
+//}
