@@ -2,6 +2,7 @@ package in.techcamp.issueAppJava;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
 
 import java.util.List;
 
@@ -18,9 +19,11 @@ public class IssueEntity {
     private String period;
     private Character importance;
 
-    @ManyToOne
+    @ToString.Exclude
+    @ManyToOne(fetch = FetchType.EAGER)
     private UserEntity user;
 
-    @OneToMany(mappedBy = "issue",cascade = CascadeType.REMOVE)
+    @ToString.Exclude
+    @OneToMany(mappedBy = "issue",cascade = CascadeType.REMOVE,fetch = FetchType.EAGER)
     private List<CommentEntity> comments;
 }

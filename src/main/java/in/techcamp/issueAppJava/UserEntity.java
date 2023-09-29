@@ -2,6 +2,8 @@ package in.techcamp.issueAppJava;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
+
 import java.util.List;
 
 @Entity
@@ -15,9 +17,11 @@ public class UserEntity {
     private String username;
     private String password;
 
-    @OneToMany(mappedBy = "user")
+    @ToString.Exclude
+    @OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
     private List<IssueEntity> issues;
 
-    @OneToMany(mappedBy = "user")
+    @ToString.Exclude
+    @OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
     private List<CommentEntity> comments;
 }

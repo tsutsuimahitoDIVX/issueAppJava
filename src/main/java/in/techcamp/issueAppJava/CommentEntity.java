@@ -2,6 +2,7 @@ package in.techcamp.issueAppJava;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
 
 @Entity
 @Table(name = "comments")
@@ -12,9 +13,11 @@ public class CommentEntity {
     private Integer id;
     private String message;
 
-    @ManyToOne
+    @ToString.Exclude
+    @ManyToOne(fetch = FetchType.EAGER)
     private UserEntity user;
 
-    @ManyToOne
+    @ToString.Exclude
+    @ManyToOne(fetch = FetchType.EAGER)
     private IssueEntity issue;
 }
